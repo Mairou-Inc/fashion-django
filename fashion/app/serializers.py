@@ -12,8 +12,7 @@ class SizeSerializer(serializers.ModelSerializer):
         return obj.name
     
     def get_price(self, obj):
-        print(Price.objects.get(size_id=obj))
-        return 22
+        return Price.objects.get(size_id=obj).price
 
     class Meta:
         model = Size
