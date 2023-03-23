@@ -20,14 +20,7 @@ class SizeSerializer(serializers.ModelSerializer):
         fields = ['title', 'price']
 
 
-
-class BrandSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Brand
-        fields = ['name']
-
 class ProductSerializer(serializers.ModelSerializer):
-    # brand = BrandSerializer(many=False)
     size = SizeSerializer(many=True)
     brand_name = serializers.SerializerMethodField('get_brand_name')
     actual_price = serializers.SerializerMethodField('get_actual_price')
